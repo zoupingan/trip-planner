@@ -1,0 +1,40 @@
+### 健康检查
+GET http://127.0.0.1:8081/health
+
+
+### 生成旅行计划
+# @timeout 5 m
+POST http://127.0.0.1:8081/api/trip/plan
+Content-Type: application/json
+
+{
+  "city": "北京",
+  "start_date": "2026-06-10",
+  "end_date": "2026-06-10",
+  "travel_days": 1,
+  "transportation": "公共交通",
+  "accommodation": "经济型酒店",
+  "preferences": ["历史文化", "美食"],
+  "free_text_input": "希望少走路"
+}
+
+### 获取景点图片
+GET http://127.0.0.1:8081/api/poi/photo?name=北京天安门
+
+### 地图 POI 搜索
+GET http://127.0.0.1:8081/api/map/poi?keywords=故宫&city=北京&citylimit=true
+
+### POI 详情
+GET http://127.0.0.1:8081/api/poi/detail/B000A8UIN8
+
+### 路线规划 - 步行
+POST http://127.0.0.1:8081/api/map/route
+Content-Type: application/json
+
+{
+  "origin_address": "故宫博物院",
+  "destination_address": "景山公园",
+  "origin_city": "北京",
+  "destination_city": "北京",
+  "route_type": "walking"
+}
