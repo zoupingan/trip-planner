@@ -1,14 +1,14 @@
 ### 健康检查
-GET http://127.0.0.1:8081/health
+GET http://127.0.0.1:8001/health
 
 
 ### 生成旅行计划
 # @timeout 5 m
-POST http://127.0.0.1:8081/api/trip/plan
+POST http://127.0.0.1:8001/api/trip/plan
 Content-Type: application/json
 
 {
-  "city": "北京",
+  "city": "广东",
   "start_date": "2026-06-10",
   "end_date": "2026-06-10",
   "travel_days": 1,

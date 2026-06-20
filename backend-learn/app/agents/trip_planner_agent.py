@@ -225,7 +225,7 @@ class SimpleTripPlanner:
             return self.parse_response(planner_response, request)
         except Exception as e:
             print(f"生成旅行计划失败: {e}")
-            return self._create_fallback_plan(request)
+            return self.create_fallback_plan(request)
 
     # 构建景点查询query
     def build_attraction_query(self, request: TripRequest) -> str:
@@ -298,9 +298,9 @@ class SimpleTripPlanner:
             data = json.loads(json_str)
             return TripPlan(**data)
         except Exception as e:
-            return self._create_fallback_plan(request)
+            raise ValueError( f"规划结果解析失败: {e}")
 
-    def _create_fallback_plan(self, request: TripRequest) -> TripPlan:
+    def create_fallback_plan(self, request: TripRequest) -> TripPlan:
 
         start_date = datetime.strptime(request.start_date, "%Y-%m-%d")
         days = []
