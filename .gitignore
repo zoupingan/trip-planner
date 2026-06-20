@@ -14,6 +14,9 @@ dist/
 build/
 **/build/
 
+# Local deployment helpers
+deploy/
+
 # Python
 .venv/
 **/.venv/
@@ -39,4 +42,3 @@ Thumbs.db
 *.log
 *.tmp
 *.bak
-
